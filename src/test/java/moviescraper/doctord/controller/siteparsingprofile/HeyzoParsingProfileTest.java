@@ -39,7 +39,7 @@ public class HeyzoParsingProfileTest {
 	@Test
 	public void testSearchString() {
 		String searchString = profile.createSearchString(file);
-		assertEquals("Wrong searchString.", "http://en.heyzo.com/moviepages/0194/index.html", searchString);
+		assertEquals("Wrong searchString.", "https://en.heyzo.com/moviepages/0194/index.html", searchString);
 	}
 
 	@Test
@@ -104,14 +104,14 @@ public class HeyzoParsingProfileTest {
 	public void testPoster() {
 		String posterURL = profile.scrapePosters()[0].getThumbURL().toString();
 		System.out.println("poster url of first poster = " + posterURL);
-		assertEquals("Wrong poster url", "http://en.heyzo.com/contents/3000/0194/gallery/001.jpg", posterURL);
+		assertEquals("Wrong poster url", "https://en.heyzo.com/contents/3000/0194/gallery/001.jpg", posterURL);
 	}
 
 	@Test
 	public void testTrailer() {
 		Trailer trailer = profile.scrapeTrailer();
 		System.out.println("trailer = " + trailer);
-		assertEquals("Wrong trailer url", "http://sample.heyzo.com/contents/3000/0194/heyzo_hd_0194_sample.mp4", trailer.getTrailer());
+		assertEquals("Wrong trailer url", "https://sample.heyzo.com/contents/3000/0194/heyzo_hd_0194_sample.mp4", trailer.getTrailer());
 	}
 
 	@Test
@@ -120,7 +120,7 @@ public class HeyzoParsingProfileTest {
 		System.out.println("actorList = " + actorList);
 		assertEquals("Wrong actor list name", "Miku Oguri", actorList.get(0).getName());
 		try {
-			assertEquals("Wrong actor list url", new Thumb("http://en.heyzo.com/actorprofile/3000/0192/profile.jpg").toString(), actorList.get(0).getThumb().toString());
+			assertEquals("Wrong actor list url", new Thumb("https://en.heyzo.com/actorprofile/3000/0192/profile.jpg").toString(), actorList.get(0).getThumb().toString());
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

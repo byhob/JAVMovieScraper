@@ -298,7 +298,7 @@ public class AvEntertainmentParsingProfile extends SiteParsingProfile implements
 			Thumb thumb = null;
 			for (Element thumbElement : selectThumb) {
 				String attr = thumbElement.attr("src");
-				if (attr.startsWith("http://imgs.aventertainments.com/product_images")) {
+				if (attr.startsWith("https://imgs.aventertainments.com/product_images")) {
 					thumb = new Thumb(attr);
 				}
 			}
@@ -313,8 +313,8 @@ public class AvEntertainmentParsingProfile extends SiteParsingProfile implements
 			Thumb thumb = null;
 			for (Element thumbElement : selectThumb) {
 				String attr = thumbElement.attr("src");
-				if (attr.startsWith("http://imgs.aventertainments.com/product_images") || attr.startsWith("http://imgs.aventertainments.com/new/jacket_images/")
-				        || attr.startsWith("http://imgs.aventertainments.com/archive/jacket_images/")) {
+				if (attr.startsWith("https://imgs.aventertainments.com/product_images") || attr.startsWith("https://imgs.aventertainments.com/new/jacket_images/")
+				        || attr.startsWith("https://imgs.aventertainments.com/archive/jacket_images/")) {
 					thumb = new Thumb(attr);
 				}
 			}
@@ -327,7 +327,7 @@ public class AvEntertainmentParsingProfile extends SiteParsingProfile implements
 		String languageID = "1";
 		if (getScrapingLanguage() == Language.JAPANESE)
 			languageID = "2";
-		return "http://www.aventertainments.com/search_Products.aspx?languageID=" + languageID + "&dept_id=29&keyword=" + id + "&searchby=item_no";
+		return "https://www.aventertainments.com/search_Products.aspx?languageID=" + languageID + "&dept_id=29&keyword=" + id + "&searchby=item_no";
 	}
 
 	@Override

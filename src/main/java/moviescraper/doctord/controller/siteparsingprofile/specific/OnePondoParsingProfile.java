@@ -149,13 +149,13 @@ public class OnePondoParsingProfile extends SiteParsingProfileJSON implements Sp
 	public Thumb[] scrapeFanart() {
 		try {
 			ArrayList<Thumb> thumbList = new ArrayList<>();
-			String bannerURL = "http://www.1pondo.tv/assets/sample/" + scrapeID().getId() + "/str.jpg";
-			String backgroundURLOne = "http://www.1pondo.tv/assets/sample/" + scrapeID().getId() + "/1.jpg";
-			String backgroundURLTwo = "http://www.1pondo.tv/assets/sample/" + scrapeID().getId() + "/2.jpg";
-			String popupOneURL = "http://www.1pondo.tv/assets/sample/" + scrapeID().getId() + "/popu/1.jpg";
-			String popupTwoURL = "http://www.1pondo.tv/assets/sample/" + scrapeID().getId() + "/popu/2.jpg";
-			String popupThreeURL = "http://www.1pondo.tv/assets/sample/" + scrapeID().getId() + "/popu/3.jpg";
-			String popupFourURL = "http://www.1pondo.tv/assets/sample/" + scrapeID().getId() + "/popu.jpg";
+			String bannerURL = "https://www.1pondo.tv/assets/sample/" + scrapeID().getId() + "/str.jpg";
+			String backgroundURLOne = "https://www.1pondo.tv/assets/sample/" + scrapeID().getId() + "/1.jpg";
+			String backgroundURLTwo = "https://www.1pondo.tv/assets/sample/" + scrapeID().getId() + "/2.jpg";
+			String popupOneURL = "https://www.1pondo.tv/assets/sample/" + scrapeID().getId() + "/popu/1.jpg";
+			String popupTwoURL = "https://www.1pondo.tv/assets/sample/" + scrapeID().getId() + "/popu/2.jpg";
+			String popupThreeURL = "https://www.1pondo.tv/assets/sample/" + scrapeID().getId() + "/popu/3.jpg";
+			String popupFourURL = "https://www.1pondo.tv/assets/sample/" + scrapeID().getId() + "/popu.jpg";
 			if (SiteParsingProfile.fileExistsAtURL(bannerURL))
 				thumbList.add(new Thumb(bannerURL));
 			if (SiteParsingProfile.fileExistsAtURL(popupOneURL))
@@ -248,7 +248,7 @@ public class OnePondoParsingProfile extends SiteParsingProfileJSON implements Sp
 	@Override
 	public Trailer scrapeTrailer() {
 		ID movieID = scrapeID();
-		String potentialTrailerURL = "http://smovie.1pondo.tv/moviepages/" + movieID.getId() + "/sample/sample.avi";
+		String potentialTrailerURL = "https://smovie.1pondo.tv/moviepages/" + movieID.getId() + "/sample/sample.avi";
 		if (SiteParsingProfile.fileExistsAtURL(potentialTrailerURL))
 			return new Trailer(potentialTrailerURL);
 		else

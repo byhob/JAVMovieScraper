@@ -63,7 +63,7 @@ public class CaribbeancomParsingProfile extends SiteParsingProfile implements Sp
 	 */
 	private void initializeJapaneseDocument() {
 		if (document != null && japaneseDocument == null) {
-			String url = "http://www.caribbeancom.com/moviepages/" + id + "/index.html";
+			String url = "https://www.caribbeancom.com/moviepages/" + id + "/index.html";
 			japaneseDocument = SiteParsingProfile.downloadDocumentFromURLString(url);
 		}
 	}
@@ -268,7 +268,7 @@ public class CaribbeancomParsingProfile extends SiteParsingProfile implements Sp
 	public Trailer scrapeTrailer() {
 		ID id = scrapeID();
 		if (id != null && id.getId().length() > 0) {
-			String trailerPath = "http://smovie.caribbeancom.com/sample/movies/" + id.getId() + "/sample_m.mp4";
+			String trailerPath = "https://smovie.caribbeancom.com/sample/movies/" + id.getId() + "/sample_m.mp4";
 			if (SiteParsingProfile.fileExistsAtURL(trailerPath))
 				return new Trailer(trailerPath);
 		}
@@ -280,7 +280,7 @@ public class CaribbeancomParsingProfile extends SiteParsingProfile implements Sp
 	public String createSearchString(File file) {
 		scrapedMovieFile = file;
 		this.id = findIDTagFromFile(file);
-		String englishPage = "http://en.caribbeancom.com/eng/moviepages/" + id + "/index.html";
+		String englishPage = "https://en.caribbeancom.com/eng/moviepages/" + id + "/index.html";
 		return englishPage;
 	}
 

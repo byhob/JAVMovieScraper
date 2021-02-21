@@ -243,7 +243,7 @@ public class TokyoHotParsingProfile extends SiteParsingProfile implements Specif
 
 		if (fileID != null) {
 			try {
-				Document doc = Jsoup.connect("http://cdn.www.tokyo-hot.com/igs/").userAgent("Mozilla").ignoreHttpErrors(true).timeout(SiteParsingProfile.CONNECTION_TIMEOUT_VALUE).get();
+				Document doc = Jsoup.connect("https://cdn.www.tokyo-hot.com/igs/").userAgent("Mozilla").ignoreHttpErrors(true).timeout(SiteParsingProfile.CONNECTION_TIMEOUT_VALUE).get();
 				Elements select = doc.select("tr td a");
 				String foundLink = null;
 				for (Element element : select) {
@@ -294,12 +294,12 @@ public class TokyoHotParsingProfile extends SiteParsingProfile implements Specif
 	}
 
 	private String getImageLink(String searchString) {
-		return "http://cdn.www.tokyo-hot.com/igs/" + searchString + "/";
+		return "https://cdn.www.tokyo-hot.com/igs/" + searchString + "/";
 	}
 
 	private String getSiteLink(String searchString) {
 		this.searchString = searchString;
-		return "http://cdn.www.tokyo-hot.com/e/" + searchString + "_e.html";
+		return "https://cdn.www.tokyo-hot.com/e/" + searchString + "_e.html";
 	}
 
 	@Override

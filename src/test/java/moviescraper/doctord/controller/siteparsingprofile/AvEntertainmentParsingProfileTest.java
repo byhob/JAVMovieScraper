@@ -30,7 +30,7 @@ public class AvEntertainmentParsingProfileTest {
 
 	@BeforeClass
 	public static void initialize() {
-		String url = "http://www.aventertainments.com/product_lists.aspx?product_id=81366&languageID=1&dept_id=29";
+		String url = "https://www.aventertainments.com/product_lists.aspx?product_id=81366&languageID=1&dept_id=29";
 		Document document = SiteParsingProfile.downloadDocumentFromURLString(url);
 		profile = new AvEntertainmentParsingProfile();
 		profile.setDocument(document);
@@ -38,7 +38,7 @@ public class AvEntertainmentParsingProfileTest {
 
 	@Test
 	public void testSearchResult() throws IOException {
-		SearchResult[] results = profile.getSearchResults("http://www.aventertainments.com/ppv/ppv_studioproducts.aspx?StudioID=185&languageID=1&VODTypeID=1");
+		SearchResult[] results = profile.getSearchResults("https://www.aventertainments.com/ppv/ppv_studioproducts.aspx?StudioID=185&languageID=1&VODTypeID=1");
 		//		for (SearchResult sr : results) {
 		//			TestTokyoHotParsingProfile.showImage(sr.getLabel(), sr.getPreviewImage().getThumbImage());
 		//		}

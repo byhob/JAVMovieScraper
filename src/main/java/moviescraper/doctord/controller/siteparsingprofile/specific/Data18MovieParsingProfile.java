@@ -225,7 +225,7 @@ public class Data18MovieParsingProfile extends SiteParsingProfile implements Spe
 			Thumb[] posterThumbs = new Thumb[1];
 			try {
 				posterThumbs[0] = new Thumb(fixIPAddressOfData18(posterElement.attr("href")));
-				posterThumbs[0].setViewerURL(new URL("http://www.data18.com/movies"));
+				posterThumbs[0].setViewerURL(new URL("https://www.data18.com/movies"));
 				return ArrayUtils.addAll(scrapedExtraFanart, posterThumbs);
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
@@ -268,7 +268,7 @@ public class Data18MovieParsingProfile extends SiteParsingProfile implements Spe
 		// Checking for changed and/or different contentIDs from the main/root item and building a new array
 		ArrayList<String> galleryLinks = new ArrayList<>();
 		for (String myID : contentLinks) {
-			String currentGalleryURL = "http://www.data18.com/content/" + myID;
+			String currentGalleryURL = "https://www.data18.com/content/" + myID;
 			try {
 
 				Document galleryDocument = Jsoup.connect(currentGalleryURL).timeout(SiteParsingProfile.CONNECTION_TIMEOUT_VALUE)
@@ -306,7 +306,7 @@ public class Data18MovieParsingProfile extends SiteParsingProfile implements Spe
 		for (String contentID : resultList) {
 			//int viewerPageNumber = 1;
 			for (int viewerPageNumber = 1; viewerPageNumber <= 15; viewerPageNumber++) {
-				String currentViewerPageURL = "http://www.data18.com/viewer/" + contentID + "/" + String.format("%02d", viewerPageNumber);
+				String currentViewerPageURL = "https://www.data18.com/viewer/" + contentID + "/" + String.format("%02d", viewerPageNumber);
 				try {
 					Document viewerDocument = Jsoup.connect(currentViewerPageURL).timeout(SiteParsingProfile.CONNECTION_TIMEOUT_VALUE)
 					        .userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64; rv:5.0) Gecko/20100101 Firefox/5.0").get();
@@ -391,7 +391,7 @@ public class Data18MovieParsingProfile extends SiteParsingProfile implements Spe
 			}
 		}
 
-		Elements otherActors = document.select("[href^=http://www.data18.com/dev/]");
+		Elements otherActors = document.select("[href^=https://www.data18.com/dev/]");
 		if (otherActors != null) {
 			for (Element element : otherActors) {
 				String actorName = element.attr("alt");
@@ -452,7 +452,7 @@ public class Data18MovieParsingProfile extends SiteParsingProfile implements Spe
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			fileBaseName = "http://www.data18.com/search/?k=" + fileBaseName + "&t=2";
+			fileBaseName = "https://www.data18.com/search/?k=" + fileBaseName + "&t=2";
 			return fileBaseName;
 		}
 		return FilenameUtils.getBaseName(file.getName());

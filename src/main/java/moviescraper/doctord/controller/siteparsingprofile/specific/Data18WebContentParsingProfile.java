@@ -274,7 +274,7 @@ public class Data18WebContentParsingProfile extends SiteParsingProfile implement
 		for (String contentID : contentLinks) {
 			for (int viewerPageNumber = 1; viewerPageNumber <= 15; viewerPageNumber++) {
 				//System.out.println("viewerPageNumber: " + String.format("%02d", viewerPageNumber));
-				String currentViewerPageURL = "http://www.data18.com/viewer/" + contentID + "/" + String.format("%02d", viewerPageNumber);
+				String currentViewerPageURL = "https://www.data18.com/viewer/" + contentID + "/" + String.format("%02d", viewerPageNumber);
 				//System.out.println("currentVIewerPageURL + " + currentViewerPageURL);
 				try {
 
@@ -394,7 +394,7 @@ public class Data18WebContentParsingProfile extends SiteParsingProfile implement
 		if (genreElements != null) {
 			for (Element currentGenreElement : genreElements) {
 				//Quick fix to get rid of the search link from appearing as a category
-				if (!(currentGenreElement.attr("href").equals("http://www.data18.com/content/search.html"))) {
+				if (!(currentGenreElement.attr("href").equals("https://www.data18.com/content/search.html"))) {
 					String genreText = currentGenreElement.text().trim();
 					if (genreText != null && genreText.length() > 0)
 						genreList.add(new Genre(genreText));
@@ -426,8 +426,8 @@ public class Data18WebContentParsingProfile extends SiteParsingProfile implement
 						}
 
 						//case with actor with thumbnail
-						if (actorThumbnail != null && !actorThumbnail.equals("http://img.data18.com/images/no_prev_60.gif")
-						        && (!actorThumbnail.equals("http://img.data18.com/images/no_prev_star.jpg"))) {
+						if (actorThumbnail != null && !actorThumbnail.equals("https://img.data18.com/images/no_prev_60.gif")
+						        && (!actorThumbnail.equals("https://img.data18.com/images/no_prev_star.jpg"))) {
 							try {
 								actorThumbnail = actorThumbnail.replaceFirst(Pattern.quote("/60/"), "/120/");
 								Thumb actorThumb = new Thumb(actorThumbnail);
@@ -457,7 +457,7 @@ public class Data18WebContentParsingProfile extends SiteParsingProfile implement
 			}
 		}
 		//Actors without pictures
-		Elements otherActors = document.select("[href^=http://www.data18.com/dev/]");
+		Elements otherActors = document.select("[href^=https://www.data18.com/dev/]");
 		if (otherActors != null) {
 			for (Element element : otherActors) {
 				String actorName = element.attr("alt");
@@ -522,7 +522,7 @@ public class Data18WebContentParsingProfile extends SiteParsingProfile implement
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			fileBaseName = "http://www.data18.com/search/?k=" + fileBaseName + "&t=0";
+			fileBaseName = "https://www.data18.com/search/?k=" + fileBaseName + "&t=0";
 			return fileBaseName;
 		}
 		return FilenameUtils.getBaseName(file.getName());
@@ -634,7 +634,7 @@ public class Data18WebContentParsingProfile extends SiteParsingProfile implement
 		LinkedList<SearchResult> modifiedSearchResultList = new LinkedList<>();
 		for (int i = 0; i < googleResults.length; i++) {
 			//System.out.println("initial goog results = " + googleResults[i].getUrlPath());
-			if (googleResults[i].getUrlPath().matches("http://www.data18.com/content/\\d+/?")) {
+			if (googleResults[i].getUrlPath().matches("https://www.data18.com/content/\\d+/?")) {
 				//System.out.println("match = " + googleResults[i]);
 				modifiedSearchResultList.add(googleResults[i]);
 			}

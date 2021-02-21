@@ -27,7 +27,7 @@ public class Data18SharedMethods {
 					String contentID = tempUrlString.substring(indexOfSecondToLastSlash + 1);
 					URL referrerURL;
 					try {
-						referrerURL = new URL("http://www.data18.com/viewer/" + "1" + contentID + "/" + imageNumber);
+						referrerURL = new URL("https://www.data18.com/viewer/" + "1" + contentID + "/" + imageNumber);
 						return referrerURL;
 					} catch (MalformedURLException e) {
 						e.printStackTrace();

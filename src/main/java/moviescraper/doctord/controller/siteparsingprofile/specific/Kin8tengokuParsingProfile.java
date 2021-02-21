@@ -205,7 +205,7 @@ public class Kin8tengokuParsingProfile extends SiteParsingProfile implements Spe
 		scrapedMovieFile = file;
 		id = findID(FilenameUtils.getName(file.getName()));
 		if (id != null && !id.isEmpty())
-			return "http://en.kin8tengoku.com/" + id + "/pht/shosai.htm";
+			return "https://en.kin8tengoku.com/" + id + "/pht/shosai.htm";
 		return id;
 	}
 
@@ -232,7 +232,7 @@ public class Kin8tengokuParsingProfile extends SiteParsingProfile implements Spe
 	}
 
 	public String getThumbURL(String id, int number) {
-		return "http://en.kin8tengoku.com/" + id + "/pht/" + number + ".jpg";
+		return "https://en.kin8tengoku.com/" + id + "/pht/" + number + ".jpg";
 	}
 
 	@Override

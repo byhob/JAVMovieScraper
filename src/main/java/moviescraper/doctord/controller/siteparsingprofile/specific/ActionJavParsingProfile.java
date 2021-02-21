@@ -264,7 +264,7 @@ public class ActionJavParsingProfile extends SiteParsingProfile implements Speci
 					String currentActorName = actorElement.select("font").first().text();
 					String currentActorDetailFileNameURL = actorElement.select("a").attr("href");
 					currentActorDetailFileNameURL = currentActorDetailFileNameURL.substring(currentActorDetailFileNameURL.indexOf('=') + 1);
-					currentActorDetailFileNameURL = "http://images2.tsunami-ent.com/web_img/av_idols_300/" + currentActorDetailFileNameURL + ".jpg";
+					currentActorDetailFileNameURL = "https://images2.tsunami-ent.com/web_img/av_idols_300/" + currentActorDetailFileNameURL + ".jpg";
 					Actor currentActor = new Actor(currentActorName, "", new Thumb(currentActorDetailFileNameURL));
 					actorList.add(currentActor);
 				}
@@ -293,7 +293,7 @@ public class ActionJavParsingProfile extends SiteParsingProfile implements Speci
 		scrapedMovieFile = file;
 		String idTag = findIDTagFromFile(file, isFirstWordOfFileIsID());
 		if (idTag != null)
-			return "http://www.actionjav.com/results_title.cfm?sortby=pub_idu&direction=ASC&searchterm=" + idTag.replace("-", "");
+			return "https://www.actionjav.com/results_title.cfm?sortby=pub_idu&direction=ASC&searchterm=" + idTag.replace("-", "");
 
 		return null;
 	}
@@ -316,7 +316,7 @@ public class ActionJavParsingProfile extends SiteParsingProfile implements Speci
 			if (actress != null)
 				title = title + " - " + actress.ownText();
 
-			String url = "http://www.actionjav.com/" + link.attr("href");
+			String url = "https://www.actionjav.com/" + link.attr("href");
 			SearchResult result = new SearchResult(url, title);
 
 			if (id.equals(searchId))
@@ -335,7 +335,7 @@ public class ActionJavParsingProfile extends SiteParsingProfile implements Speci
 		Element script = document.select("head > script:nth-of-type(2)").first();
 		if (script != null) {
 			String data = script.data();
-			Pattern pattern = Pattern.compile("\"(http://images2.tsunami-ent.com/web_img/.*\\.jpg)\"");
+			Pattern pattern = Pattern.compile("\"(https://images2.tsunami-ent.com/web_img/.*\\.jpg)\"");
 			Matcher matcher = pattern.matcher(data);
 			while (matcher.find()) {
 				try {

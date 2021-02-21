@@ -392,7 +392,7 @@ public class JavLibraryParsingProfile extends SiteParsingProfile implements Spec
 		URLCodec codec = new URLCodec();
 		try {
 			String fileNameURLEncoded = codec.encode(fileNameNoExtension);
-			String searchTerm = "http://www.javlibrary.com/" + siteLanguageToScrape + "/vl_searchbyid.php?keyword=" + fileNameURLEncoded;
+			String searchTerm = "https://www.javlibrary.com/" + siteLanguageToScrape + "/vl_searchbyid.php?keyword=" + fileNameURLEncoded;
 			
 			return searchTerm;
 					
@@ -409,7 +409,7 @@ public class JavLibraryParsingProfile extends SiteParsingProfile implements Spec
 	public SearchResult[] getSearchResults(String searchString) throws IOException {
 		
 		ArrayList<SearchResult> linksList = new ArrayList<>();
-		String websiteURLBegin = "http://www.javlibrary.com/" + siteLanguageToScrape;
+		String websiteURLBegin = "https://www.javlibrary.com/" + siteLanguageToScrape;
 		try{
 		Document doc = Jsoup.connect(searchString).userAgent("Mozilla").ignoreHttpErrors(true).timeout(SiteParsingProfile.CONNECTION_TIMEOUT_VALUE).get();
 		//The search found the page directly

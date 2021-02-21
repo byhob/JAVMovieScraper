@@ -172,8 +172,8 @@ public class HeyzoParsingProfile extends SiteParsingProfile implements SpecificP
 		try {
 			//gallery links
 			for (int i = 1; i <= 21; i++) {
-				String potentialGalleryImageURL = "http://en.heyzo.com/contents/3000/" + scrapedId + "/gallery/0" + String.format("%02d", i) + ".jpg";
-				String potentialGalleryPreviewImageURL = "http://en.heyzo.com/contents/3000/" + scrapedId + "/gallery/thumbnail_0" + String.format("%02d", i) + ".jpg";
+				String potentialGalleryImageURL = "https://en.heyzo.com/contents/3000/" + scrapedId + "/gallery/0" + String.format("%02d", i) + ".jpg";
+				String potentialGalleryPreviewImageURL = "https://en.heyzo.com/contents/3000/" + scrapedId + "/gallery/thumbnail_0" + String.format("%02d", i) + ".jpg";
 				if (SiteParsingProfile.fileExistsAtURL(potentialGalleryImageURL)) {
 					Thumb thumbToAdd = new Thumb(potentialGalleryImageURL);
 					thumbToAdd.setPreviewURL(new URL(potentialGalleryPreviewImageURL));
@@ -182,7 +182,7 @@ public class HeyzoParsingProfile extends SiteParsingProfile implements SpecificP
 				}
 			}
 			//image that is the preview of the trailer
-			Thumb trailerPreviewThumb = new Thumb("http://www.heyzo.com/contents/3000/" + scrapedId + "/images/player_thumbnail_450.jpg");
+			Thumb trailerPreviewThumb = new Thumb("https://www.heyzo.com/contents/3000/" + scrapedId + "/images/player_thumbnail_450.jpg");
 			thumbList.add(trailerPreviewThumb);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -195,7 +195,7 @@ public class HeyzoParsingProfile extends SiteParsingProfile implements SpecificP
 	@Override
 	public Trailer scrapeTrailer() {
 		String scrapedId = scrapeID().getId();
-		String trailerURL = "http://sample.heyzo.com/contents/3000/" + scrapedId + "/heyzo_hd_0194_sample.mp4";
+		String trailerURL = "https://sample.heyzo.com/contents/3000/" + scrapedId + "/heyzo_hd_0194_sample.mp4";
 		if (SiteParsingProfile.fileExistsAtURL(trailerURL))
 			return new Trailer(trailerURL);
 		return Trailer.BLANK_TRAILER;
@@ -254,7 +254,7 @@ public class HeyzoParsingProfile extends SiteParsingProfile implements SpecificP
 				String[] splitHrefByUnderScore = actorHref.split("_");
 				if (splitHrefByUnderScore.length > 0) {
 					actorNumber = splitHrefByUnderScore[1];
-					actorThumbUrl = "http://en.heyzo.com/actorprofile/3000/" + String.format("%04d", Integer.parseInt(actorNumber)) + "/profile.jpg";
+					actorThumbUrl = "https://en.heyzo.com/actorprofile/3000/" + String.format("%04d", Integer.parseInt(actorNumber)) + "/profile.jpg";
 				}
 			}
 			//we found a thumbnail image for this actor
@@ -292,8 +292,8 @@ public class HeyzoParsingProfile extends SiteParsingProfile implements SpecificP
 
 		if (fileID != null) {
 
-			englishPage = "http://en.heyzo.com/moviepages/" + fileID + "/index.html";
-			japanesePage = "http://www.heyzo.com/moviepages/" + fileID + "/index.html";
+			englishPage = "https://en.heyzo.com/moviepages/" + fileID + "/index.html";
+			japanesePage = "https://www.heyzo.com/moviepages/" + fileID + "/index.html";
 			try {
 				japaneseDocument = Jsoup.connect(japanesePage).timeout(SiteParsingProfile.CONNECTION_TIMEOUT_VALUE).get();
 			} catch (IOException e) {

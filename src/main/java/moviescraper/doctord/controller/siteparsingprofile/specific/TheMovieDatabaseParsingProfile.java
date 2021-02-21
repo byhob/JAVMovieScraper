@@ -399,9 +399,9 @@ public class TheMovieDatabaseParsingProfile extends SiteParsingProfileJSON imple
 			if (includeAdult)
 				includeAdultParameter = "&include_adult=true";
 			if (year != null && year.length() == 4) {
-				return "http://api.themoviedb.org/3/search/movie?api_key=" + tmdbKey + includeAdultParameter + "&query=" + fileNameURLEncoded + "&year=" + year;
+				return "https://api.themoviedb.org/3/search/movie?api_key=" + tmdbKey + includeAdultParameter + "&query=" + fileNameURLEncoded + "&year=" + year;
 			} else
-				return "http://api.themoviedb.org/3/search/movie?api_key=" + tmdbKey + includeAdultParameter + "&query=" + fileNameURLEncoded;
+				return "https://api.themoviedb.org/3/search/movie?api_key=" + tmdbKey + includeAdultParameter + "&query=" + fileNameURLEncoded;
 		} catch (EncoderException e) {
 			e.printStackTrace();
 		}
@@ -441,7 +441,7 @@ public class TheMovieDatabaseParsingProfile extends SiteParsingProfileJSON imple
 	}
 
 	private String getAPIURLPathFromMovieID(int movieID) {
-		return "http://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + tmdbKey + "&append_to_response=images,credits,keywords";
+		return "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + tmdbKey + "&append_to_response=images,credits,keywords";
 	}
 
 	@Override

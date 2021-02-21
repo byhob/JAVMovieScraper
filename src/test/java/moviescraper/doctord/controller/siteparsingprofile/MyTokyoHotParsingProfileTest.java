@@ -100,7 +100,7 @@ public class MyTokyoHotParsingProfileTest {
 		Actor actor = actors.get(0);
 		assertEquals("Actor name not correct", "Iori Tsukimoto", actor.getName());
 		assertNotNull("Thumb should exists", actor.getThumb());
-		assertEquals("Actor thumb path not correct", "http://my.cdn.tokyo-hot.com/media/cast/5859/thumbnail.jpg", actor.getThumb().getThumbURL().toString());
+		assertEquals("Actor thumb path not correct", "https://my.cdn.tokyo-hot.com/media/cast/5859/thumbnail.jpg", actor.getThumb().getThumbURL().toString());
 	}
 
 	@Test

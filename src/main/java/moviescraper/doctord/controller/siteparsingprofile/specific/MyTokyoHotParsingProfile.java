@@ -254,7 +254,7 @@ public class MyTokyoHotParsingProfile extends SiteParsingProfile implements Spec
 		ArrayList<Actor> actorList = new ArrayList<>();
 		for (Element element : document.select("#main .info a")) {
 			String name = element.text();
-			String thumbnailLink = "http://my.cdn.tokyo-hot.com/media" + element.attr("href") + "thumbnail.jpg";
+			String thumbnailLink = "https://my.cdn.tokyo-hot.com/media" + element.attr("href") + "thumbnail.jpg";
 			if (SiteParsingProfile.fileExistsAtURL(thumbnailLink)) {
 				try {
 					actorList.add(new Actor(name, "", new Thumb(thumbnailLink)));

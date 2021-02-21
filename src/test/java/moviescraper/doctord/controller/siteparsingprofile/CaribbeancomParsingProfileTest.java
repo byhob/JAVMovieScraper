@@ -116,7 +116,7 @@ public class CaribbeancomParsingProfileTest {
 	@Test
 	public void testTrailer() {
 		Trailer trailer = parser.scrapeTrailer();
-		assertEquals("Wrong trailer", "http://smovie.caribbeancom.com/sample/movies/070514-637/sample_m.mp4", trailer.getTrailer());
+		assertEquals("Wrong trailer", "https://smovie.caribbeancom.com/sample/movies/070514-637/sample_m.mp4", trailer.getTrailer());
 	}
 
 	@Test

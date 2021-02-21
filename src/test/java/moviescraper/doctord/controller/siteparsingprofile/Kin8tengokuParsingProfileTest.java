@@ -34,7 +34,7 @@ public class Kin8tengokuParsingProfileTest {
 	@Test
 	public void testSearchString() {
 		String searchString = profile.createSearchString(file);
-		assertEquals("Wrong searchString.", "http://en.kin8tengoku.com/1000/pht/shosai.htm", searchString);
+		assertEquals("Wrong searchString.", "https://en.kin8tengoku.com/1000/pht/shosai.htm", searchString);
 	}
 
 	@Test

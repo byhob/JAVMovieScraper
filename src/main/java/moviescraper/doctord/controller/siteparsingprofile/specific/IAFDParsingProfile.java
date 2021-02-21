@@ -306,7 +306,7 @@ public class IAFDParsingProfile extends SiteParsingProfile implements SpecificPr
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			fileBaseName = "http://www.iafd.com/results.asp?searchtype=comprehensive&searchstring=" + fileBaseName;
+			fileBaseName = "https://www.iafd.com/results.asp?searchtype=comprehensive&searchstring=" + fileBaseName;
 			return fileBaseName;
 		}
 		return FilenameUtils.getBaseName(file.getName());
@@ -316,7 +316,7 @@ public class IAFDParsingProfile extends SiteParsingProfile implements SpecificPr
 	public SearchResult[] getSearchResults(String searchString) throws IOException {
 		if (useSiteSearch) {
 			ArrayList<SearchResult> linksList = new ArrayList<>();
-			Document doc = Jsoup.connect(searchString).userAgent(getRandomUserAgent()).referrer("http://www.iafd.com").ignoreHttpErrors(true).timeout(SiteParsingProfile.CONNECTION_TIMEOUT_VALUE)
+			Document doc = Jsoup.connect(searchString).userAgent(getRandomUserAgent()).referrer("https://www.iafd.com").ignoreHttpErrors(true).timeout(SiteParsingProfile.CONNECTION_TIMEOUT_VALUE)
 			        .get();
 			//check to see if we directly found the title
 			if (doc != null && doc.location().contains("title.asp?title=")) {

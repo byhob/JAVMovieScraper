@@ -371,7 +371,7 @@ public class JavLibraryParsingProfile extends SiteParsingProfile implements Spec
 		URLCodec codec = new URLCodec();
 		try {
 			String fileNameURLEncoded = codec.encode(fileNameNoExtension);
-			String searchTerm = "http://www.javlibrary.com/" + siteLanguageToScrape + "/vl_searchbyid.php?keyword=" + fileNameURLEncoded;
+			String searchTerm = "https://www.javlibrary.com/" + siteLanguageToScrape + "/vl_searchbyid.php?keyword=" + fileNameURLEncoded;
 
 			return searchTerm;
 
@@ -387,7 +387,7 @@ public class JavLibraryParsingProfile extends SiteParsingProfile implements Spec
 	public SearchResult[] getSearchResults(String searchString) throws IOException {
 
 		ArrayList<SearchResult> linksList = new ArrayList<>();
-		URL websiteURLBegin = new URL("http://www.javlibrary.com/" + siteLanguageToScrape);
+		URL websiteURLBegin = new URL("https://www.javlibrary.com/" + siteLanguageToScrape);
 
 		try {
 			Document doc = browser.get(new URL(searchString));

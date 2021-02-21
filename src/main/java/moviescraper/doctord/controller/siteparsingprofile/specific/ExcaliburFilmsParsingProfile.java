@@ -169,13 +169,13 @@ public class ExcaliburFilmsParsingProfile extends SiteParsingProfile implements 
 	private String getPosterPathFromIDString(String movieID) {
 		if (movieID == null)
 			return null;
-		return "http://images.excaliburfilms.com/DVD/reviews/imagesBB020609/largemoviepic/dvd_" + movieID + ".jpg";
+		return "https://images.excaliburfilms.com/DVD/reviews/imagesBB020609/largemoviepic/dvd_" + movieID + ".jpg";
 	}
 
 	private String getPosterPreviewPathFromIDString(String movieID) {
 		if (movieID == null)
 			return null;
-		return "http://images.excaliburfilms.com/dvd/dvdicon2/dvd_" + movieID + ".jpg";
+		return "https://images.excaliburfilms.com/dvd/dvdicon2/dvd_" + movieID + ".jpg";
 	}
 
 	@Override
@@ -190,7 +190,7 @@ public class ExcaliburFilmsParsingProfile extends SiteParsingProfile implements 
 	@Override
 	public Thumb[] scrapeExtraFanart() {
 		String movieID = scrapeID().getId();
-		String thumbPath = "http://images.excaliburfilms.com/DVD/reviews/imagesBB020609/largemoviepic/dvd_" + movieID + "-b.jpg";
+		String thumbPath = "https://images.excaliburfilms.com/DVD/reviews/imagesBB020609/largemoviepic/dvd_" + movieID + "-b.jpg";
 		try {
 			Thumb posterThumb = new Thumb(thumbPath);
 			Thumb[] thumbsToReturn = { posterThumb };
@@ -289,7 +289,7 @@ public class ExcaliburFilmsParsingProfile extends SiteParsingProfile implements 
 
 	private Thumb getThumbForPersonPageUrl(String personPageUrl) {
 		String actorFromPageName = personPageUrl.substring(personPageUrl.lastIndexOf("/"), personPageUrl.length()).replace(".htm", "");
-		String actorThumbURL = "http://Images.ExcaliburFilms.com/pornlist/starpicsAA020309" + actorFromPageName + ".jpg";
+		String actorThumbURL = "https://Images.ExcaliburFilms.com/pornlist/starpicsAA020309" + actorFromPageName + ".jpg";
 		Thumb actorThumb = null;
 		try {
 			actorThumb = new Thumb(actorThumbURL);
@@ -347,7 +347,7 @@ public class ExcaliburFilmsParsingProfile extends SiteParsingProfile implements 
 		} catch (EncoderException e) {
 			e.printStackTrace();
 		}
-		fileBaseName = "http://www.excaliburfilms.com/search/adultSearch.htm?searchString=" + fileBaseName + "&Case=ExcalMovies&Search=AdultDVDMovies&SearchFor=Title.x";
+		fileBaseName = "https://www.excaliburfilms.com/search/adultSearch.htm?searchString=" + fileBaseName + "&Case=ExcalMovies&Search=AdultDVDMovies&SearchFor=Title.x";
 		return fileBaseName;
 	}
 

@@ -213,10 +213,10 @@ public class CaribbeancomPremiumParsingProfile extends SiteParsingProfile implem
 		//start by grabbing the ID part of the current page
 		String urlOfCurrentPage = document.location();
 		if (urlOfCurrentPage != null && urlOfCurrentPage.contains("moviepages")) {
-			urlOfCurrentPage = urlOfCurrentPage.replaceFirst(Pattern.quote("http://en.caribbeancompr.com/eng/moviepages/"), "");
+			urlOfCurrentPage = urlOfCurrentPage.replaceFirst(Pattern.quote("https://en.caribbeancompr.com/eng/moviepages/"), "");
 			String movieID = urlOfCurrentPage.replaceFirst(Pattern.quote("/index.html"), "");
 			if (urlOfCurrentPage.length() > 1) {
-				String imageURL = "http://www.caribbeancompr.com/moviepages/" + movieID + "/images/l_l.jpg";
+				String imageURL = "https://www.caribbeancompr.com/moviepages/" + movieID + "/images/l_l.jpg";
 				try {
 					Thumb fanartThumbs[] = new Thumb[1];
 					Thumb fanartThumb = new Thumb(imageURL);
@@ -240,12 +240,12 @@ public class CaribbeancomPremiumParsingProfile extends SiteParsingProfile implem
 	public Thumb[] scrapeExtraFanart() {
 		String urlOfCurrentPage = document.location();
 		if (urlOfCurrentPage != null && urlOfCurrentPage.contains("moviepages")) {
-			urlOfCurrentPage = urlOfCurrentPage.replaceFirst(Pattern.quote("http://en.caribbeancompr.com/eng/moviepages/"), "");
+			urlOfCurrentPage = urlOfCurrentPage.replaceFirst(Pattern.quote("https://en.caribbeancompr.com/eng/moviepages/"), "");
 			String movieID = urlOfCurrentPage.replaceFirst(Pattern.quote("/index.html"), "");
 			if (urlOfCurrentPage.length() > 1) {
 				Thumb extraFanartThumbs[] = new Thumb[3];
 				for (int i = 1; i < 4; i++) {
-					String extraThumbURL = "http://en.caribbeancompr.com/moviepages/" + movieID + "/images/l/00" + i + ".jpg";
+					String extraThumbURL = "https://en.caribbeancompr.com/moviepages/" + movieID + "/images/l/00" + i + ".jpg";
 					try {
 						Thumb extraFanartThumb = new Thumb(extraThumbURL);
 						extraFanartThumbs[i - 1] = extraFanartThumb;
@@ -449,7 +449,7 @@ public class CaribbeancomPremiumParsingProfile extends SiteParsingProfile implem
 			initializeJapaneseDocument();
 			Elements japaneseActors = japaneseDocument.select("div.movie-info dl dt:contains(出演:) ~ dd a");
 			if (urlOfCurrentPage != null && urlOfCurrentPage.contains("moviepages")) {
-				urlOfCurrentPage = urlOfCurrentPage.replaceFirst(Pattern.quote("http://en.caribbeancompr.com/eng/moviepages/"), "http://www.caribbeancompr.com/moviepages/");
+				urlOfCurrentPage = urlOfCurrentPage.replaceFirst(Pattern.quote("https://en.caribbeancompr.com/eng/moviepages/"), "https://www.caribbeancompr.com/moviepages/");
 				actorThumbURL = urlOfCurrentPage.replaceFirst(Pattern.quote("/index.html"), "/images/n.jpg");
 			}
 			for (Element japaneseActor : japaneseActors) {
@@ -513,7 +513,7 @@ public class CaribbeancomPremiumParsingProfile extends SiteParsingProfile implem
 
 	@Override
 	public SearchResult[] getSearchResults(String searchString) throws IOException {
-		SearchResult[] googleResults = getLinksFromGoogle(searchString, "http://en.caribbeancompr.com/eng/moviepages/");
+		SearchResult[] googleResults = getLinksFromGoogle(searchString, "https://en.caribbeancompr.com/eng/moviepages/");
 		//Remove any parts of the URL after .html - for some reason this sometimes happens and messes up the scrape
 		for (int i = 0; i < googleResults.length; i++) {
 			String currentUrl = googleResults[i].getUrlPath();
@@ -530,7 +530,7 @@ public class CaribbeancomPremiumParsingProfile extends SiteParsingProfile implem
 			String urlOfCurrentPage = document.location();
 			if (urlOfCurrentPage != null && urlOfCurrentPage.contains("moviepages")) {
 				//the genres are only available on the japanese version of the page
-				urlOfCurrentPage = urlOfCurrentPage.replaceFirst(Pattern.quote("http://en.caribbeancompr.com/eng/"), "http://www.caribbeancompr.com/");
+				urlOfCurrentPage = urlOfCurrentPage.replaceFirst(Pattern.quote("https://en.caribbeancompr.com/eng/"), "https://www.caribbeancompr.com/");
 				if (urlOfCurrentPage.length() > 1) {
 					try {
 						japaneseDocument = Jsoup.connect(urlOfCurrentPage).userAgent("Mozilla").ignoreHttpErrors(true).timeout(SiteParsingProfile.CONNECTION_TIMEOUT_VALUE).get();
